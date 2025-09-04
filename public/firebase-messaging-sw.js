@@ -8,13 +8,13 @@ importScripts('https://www.gstatic.com/firebasejs/12.1.0/firebase-messaging-comp
 
 // Configuración de Firebase para el proyecto sistemaiotitch
 const firebaseConfig = {
-  apiKey: 'AIzaSyCkc2oRYXIxEoverE0S7jRReJg5ao02b4U',
-  authDomain: 'sistemaiotitch.firebaseapp.com',
-  projectId: 'sistemaiotitch',
-  storageBucket: 'sistemaiotitch.firebasestorage.app',
-  messagingSenderId: '743495962731',
-  appId: '1:743495962731:web:83c550245a1cb9053ee12e',
-  measurementId: 'G-LG82YQ717F',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 // Inicializar Firebase
@@ -32,7 +32,6 @@ messaging.onBackgroundMessage((payload) => {
     badge: '/icons/icon-96x96.png',
     data: payload.data || {},
   };
-
 
   return self.registration.showNotification(notificationTitle, notificationOptions);
 });
