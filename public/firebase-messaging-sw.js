@@ -33,6 +33,7 @@ messaging.onBackgroundMessage((payload) => {
     data: payload.data || {},
   };
 
+
   return self.registration.showNotification(notificationTitle, notificationOptions);
 });
 
